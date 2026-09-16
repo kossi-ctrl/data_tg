@@ -87,13 +87,13 @@ def main():
         csv_path = CSV_DIR / csv_filename
 
         if not csv_path.exists():
-            print(f"⚠️  Fichier introuvable : {csv_path} (lance d'abord get_togo_data.py)")
+            print(f" Fichier introuvable : {csv_path} (lance d'abord get_togo_data.py)")
             continue
 
         print(f"Chargement de {csv_filename}...")
         load_csv_to_table(engine, csv_path, table_name)
 
-    print("✅ Chargement terminé.")
+    print("Chargement terminé.")
 
 
 if __name__ == "__main__":
