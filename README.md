@@ -61,6 +61,15 @@ data_tg/
 └── .gitignore
 ```
 
+## Sample output
+
+GDP per capita in Togo, computed by the `togo_indicateurs` mart:
+
+![Togo GDP per capita](togo_pib_par_habitant.png)
+
+A sample export of the final mart table is available in
+[`togo_indicateurs_sample.csv`](togo_indicateurs_sample.csv).
+
 ## Data quality tests
 
 Each staging model is tested for:
