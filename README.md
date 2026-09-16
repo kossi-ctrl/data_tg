@@ -6,7 +6,7 @@ with dbt, and orchestrates the whole flow with Apache Airflow.
 
 ## Why this project
 
-Built as a hands-on exercise in **data quality and governance** the core
+Built as a hands-on exercise in **data quality and governance** — the core
 theme of this pipeline is not just moving data around, but making sure it can
 be trusted: automated tests catch missing values, out-of-range numbers, and
 unexpected values before they reach the final tables.
@@ -69,6 +69,23 @@ GDP per capita in Togo, computed by the `togo_indicateurs` mart:
 
 A sample export of the final mart table is available in
 [`togo_indicateurs_sample.csv`](togo_indicateurs_sample.csv).
+
+## Challenges encountered
+
+A few real issues came up while building this pipeline, worth documenting:
+
+- **Port conflict** — a local PostgreSQL instance already used port 5432; the
+  Docker container was remapped to 5433 to avoid interfering with it.
+- **SQLAlchemy 2.0 breaking change** — raw SQL strings must now be wrapped in
+  `text()` before being executed.
+- **Dependent view blocking a table drop** — once dbt created a view on top
+  of a raw table, reloading that table with `DROP TABLE` failed. Fixed by
+  switching the loader to `TRUNCATE` + `INSERT` instead of `DROP` + `CREATE`.
+- **Type mismatch in PostgreSQL** — `round()` requires a `numeric` type, not
+  `double precision`; fixed with an explicit cast.
+- **Credentials hardcoded, then leaked in a commit** — moved to a `.env` file
+  (excluded via `.gitignore`), and the Git history was rewritten to remove
+  the leaked password entirely.
 
 ## Data quality tests
 
