@@ -75,7 +75,7 @@ def main():
 
         print(f"   -> {len(records)} lignes écrites dans {output_path}")
 
-    print("✅ Extraction terminée.")
+    print(" Extraction terminée.")
 
 
 if __name__ == "__main__":
