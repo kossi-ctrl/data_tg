@@ -41,7 +41,7 @@ def fetch_indicator(indicator_code: str) -> list[dict]:
 
     # La réponse de l'API Banque mondiale est une liste : [métadonnées_pagination, données]
     if len(data) < 2 or data[1] is None:
-        print(f"⚠️  Aucune donnée trouvée pour {indicator_code}")
+        print(f"  Aucune donnée trouvée pour {indicator_code}")
         return []
 
     return data[1]
