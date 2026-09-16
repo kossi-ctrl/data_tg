@@ -6,7 +6,7 @@ with dbt, and orchestrates the whole flow with Apache Airflow.
 
 ## Why this project
 
-Built as a hands-on exercise in **data quality and governance** — the core
+Built as a hands-on exercise in **data quality and governance** the core
 theme of this pipeline is not just moving data around, but making sure it can
 be trusted: automated tests catch missing values, out-of-range numbers, and
 unexpected values before they reach the final tables.
