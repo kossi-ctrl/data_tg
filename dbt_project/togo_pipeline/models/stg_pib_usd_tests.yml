@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: stg_pib_usd
+    description: PIB du Togo nettoyé (années sans donnée exclues).
+    columns:
+      - name: annee
+        description: Année de la mesure.
+        tests:
+          - not_null
+          - unique
+
+      - name: pib_usd
+        description: PIB en dollars US courants.
+        tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+                inclusive: true
+
+      - name: code_pays
+        description: Code ISO3 du pays.
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['TGO']

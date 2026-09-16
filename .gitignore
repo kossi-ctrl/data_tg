@@ -1,0 +1,22 @@
+# Environnements virtuels Python
+venv/
+airflow_venv/
+
+# Fichiers d'environnement contenant des identifiants réels
+.env
+
+# Données extraites (générées automatiquement, pas besoin de les versionner)
+extraction_output/
+
+# Fichiers Python compilés
+__pycache__/
+*.pyc
+
+# dbt
+dbt_project/togo_pipeline/target/
+dbt_project/togo_pipeline/dbt_packages/
+dbt_project/togo_pipeline/logs/
+
+# Fichiers système
+.DS_Store
+dbt_project/logs/

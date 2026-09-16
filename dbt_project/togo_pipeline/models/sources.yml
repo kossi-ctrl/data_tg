@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    description: Données brutes extraites de l'API Banque mondiale pour le Togo, chargées telles quelles.
+    tables:
+      - name: pib_usd
+        description: PIB du Togo en dollars US courants, par année.
+      - name: population_totale
+        description: Population totale du Togo, par année.
+      - name: acces_electricite_pct
+        description: Pourcentage de la population togolaise ayant accès à l'électricité, par année.
